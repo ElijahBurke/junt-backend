@@ -23,8 +23,6 @@ const sequelize = new Sequelize(
       idle: 10000,
     },
     logging: false,
-
-    // operatorsAliases: false // http://docs.sequelizejs.com/manual/tutorial/querying.html#operators
   },
 );
 
