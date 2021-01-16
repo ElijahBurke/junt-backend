@@ -9,8 +9,6 @@ module.exports = (sequelize, DataTypes) => {
     cover: {
       type: DataTypes.TEXT,
     },
-  }, {
-    timestamps: false,
   });
 
   Test.associate = (models) => {

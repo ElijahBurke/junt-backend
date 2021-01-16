@@ -15,4 +15,19 @@ router.route('/test/add')
 router.route('/application/add')
   .post(applicationController.addApplication);
 
+router.route('/application/update')
+  .post(applicationController.updateApplication);
+
+router.route('/application/delete/:id')
+  .delete(applicationController.deleteApplication);
+
+router.route('/auth/')
+  .get(authController.loginSuccess);
+
+router.route('/auth/check')
+  .get(authController.checkCookie);
+
+router.route('/failure')
+  .get(authController.loginFailure);
+
 module.exports = router;

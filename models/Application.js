@@ -12,8 +12,21 @@ module.exports = (sequelize, DataTypes) => {
     cover: {
       type: DataTypes.TEXT,
     },
-  }, {
-    timestamps: false,
+    notes: {
+      type: DataTypes.TEXT,
+    },
+    applied: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    interview: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    rejected: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   });
 
   Application.associate = (models) => {
