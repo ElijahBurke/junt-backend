@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Application.associate = (models) => {
-    models.applications.belongsTo(models.tests);
+    models.applications.belongsTo(models.tests, { onDelete: 'CASCADE' });
     models.tests.belongsTo(models.users);
   };
 

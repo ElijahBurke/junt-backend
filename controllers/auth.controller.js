@@ -52,9 +52,6 @@ const addUser = async (req, res) => {
 };
 
 const loginSuccess = (req, res) => {
-  console.log('hi');
-  console.log(req.user);
-  console.log(req.cookie);
   if (req.user) {
     res.status(200);
     res.send(req.user);
@@ -73,10 +70,22 @@ const checkCookie = (req, res) => {
   else res.send({ message: 'Not authenticated' });
 };
 
+const logout = async (req, res) => {
+  try {
+    await req.logout();
+    res.status(200);
+    res.send({ message: 'Logged out succesfuly.' });
+  } catch (e) {
+    console.log(e.message);
+    res.status(400).send(e);
+  }
+};
+
 module.exports = {
   addUser,
   login,
   loginSuccess,
   loginFailure,
   checkCookie,
+  logout,
 };

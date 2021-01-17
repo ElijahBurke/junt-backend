@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Test.associate = (models) => {
-    models.tests.belongsTo(models.users);
+    models.tests.belongsTo(models.users, { onDelete: 'CASCADE' });
     models.tests.hasMany(models.applications);
   };
 

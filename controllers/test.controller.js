@@ -20,13 +20,18 @@ const addTest = async (req, res) => {
 const updateTest = async (req, res) => {
   try {
     const { toUpdate, testId } = req.body;
-    const result = await models.applications.update(
+    const result = await models.tests.update(
       toUpdate,
-      { returning: true, where: { id: testId } },
+      {
+        returning: true,
+        plain: true,
+        where: {
+          id: testId,
+        },
+      },
     );
     res.status(200);
-    console.log(result);
-    res.send(result[1][0]);
+    res.send(result[1]);
   } catch (e) {
     res.status(403);
     res.send(e);
@@ -36,7 +41,7 @@ const updateTest = async (req, res) => {
 const deleteTest = async (req, res) => {
   try {
     const { id } = req.params;
-    await models.applications.destroy({ where: { id } });
+    await models.tests.destroy({ where: { id } });
     res.sendStatus(204);
   } catch (e) {
     res.status(403);

@@ -36,4 +36,7 @@ router.route('/auth/check')
 router.route('/failure')
   .get(authController.loginFailure);
 
+router.route('/logout')
+  .get(authController.logout);
+
 module.exports = router;
