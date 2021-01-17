@@ -12,6 +12,12 @@ router.route('/users/login')
 router.route('/test/add')
   .post(testController.addTest);
 
+router.route('/test/update')
+  .post(testController.updateTest);
+
+router.route('/test/delete/:id')
+  .delete(testController.deleteTest);
+
 router.route('/application/add')
   .post(applicationController.addApplication);
 

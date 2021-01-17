@@ -17,6 +17,35 @@ const addTest = async (req, res) => {
   }
 };
 
+const updateTest = async (req, res) => {
+  try {
+    const { toUpdate, testId } = req.body;
+    const result = await models.applications.update(
+      toUpdate,
+      { returning: true, where: { id: testId } },
+    );
+    res.status(200);
+    console.log(result);
+    res.send(result[1][0]);
+  } catch (e) {
+    res.status(403);
+    res.send(e);
+  }
+};
+
+const deleteTest = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await models.applications.destroy({ where: { id } });
+    res.sendStatus(204);
+  } catch (e) {
+    res.status(403);
+    res.send(e);
+  }
+};
+
 module.exports = {
   addTest,
+  updateTest,
+  deleteTest,
 };
