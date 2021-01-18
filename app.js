@@ -20,6 +20,7 @@ app.use(
   cookieSession({
     name: 'session',
     keys: ['junt'],
+    httpOnly: false,
   }),
 );
 app.use(cookieParser());
