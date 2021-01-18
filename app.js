@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: ['http://localhost:3000', 'https://junt-tool.netlify.app'],
-    methods: 'GET,HEAD,PUT.PATCH,POST,DELETE',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   }),
 );
