@@ -3,6 +3,11 @@ const authController = require('./controllers/auth.controller');
 const testController = require('./controllers/test.controller');
 const applicationController = require('./controllers/application.controller');
 
+router.route('/')
+  .get((req, res) => {
+    res.json({ hello: 'hello world' });
+  });
+
 router.route('/users/create')
   .post(authController.addUser);
 
