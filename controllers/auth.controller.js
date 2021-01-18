@@ -4,33 +4,6 @@ const models = require('../models');
 
 const saltRounds = 10;
 
-// const login = async (req, res) => {
-//   try {
-//     const { email, password } = req.body;
-//     const user = await models.users.findOne(
-//       {
-//         where: { email },
-//         include: {
-//           model: models.tests,
-//           include: models.applications,
-//         },
-//       },
-//     );
-//     const passwordIsCorrect = bcrypt.compareSync(password, user.password);
-//     if (!passwordIsCorrect) throw new Error('Incorrect password!');
-//     res.cookie('user', user.id, {
-//       signed: true,
-//     });
-//     // res.session.user = user.id;
-//     res.status(200);
-//     res.send(user);
-//   } catch (e) {
-//     console.log(e.message);
-//     res.status(404);
-//     res.send(e);
-//   }
-// };
-
 const login = passport.authenticate('local', {
   successRedirect: '/auth',
   failureRedirect: '/auth/failure',
