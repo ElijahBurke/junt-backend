@@ -32,7 +32,7 @@ router.route('/application/update')
 router.route('/application/delete/:id')
   .delete(applicationController.deleteApplication);
 
-router.route('/auth/')
+router.route('/auth')
   .get(authController.loginSuccess);
 
 router.route('/auth/check')

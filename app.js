@@ -20,7 +20,6 @@ app.use(
   cookieSession({
     name: 'session',
     keys: ['junt'],
-    httpOnly: false,
   }),
 );
 app.use(cookieParser());
@@ -30,6 +29,11 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    proxy: true,
+    cookie: {
+      secure: true,
+      maxAge: 5184000000,
+    },
   }),
 );
 app.use(express.json());
